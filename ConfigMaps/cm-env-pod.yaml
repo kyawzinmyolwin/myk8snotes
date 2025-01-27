@@ -3,7 +3,7 @@ kind: Pod
 metadata:
   creationTimestamp: null
   labels:
-    app: svc-myk8s
+    app: svc-node
   name: cm-test-pod
 spec:
   containers:
