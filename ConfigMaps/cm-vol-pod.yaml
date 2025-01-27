@@ -4,12 +4,21 @@ metadata:
   creationTimestamp: null
   labels:
     app: svc-myk8s
-  name: cm-test-pod
+  name: cm-vol-pod
 spec:
   containers:
   - image: nginx
-    name: cm-test-pod
+    name: cm-vol-pod
+    volumeMounts:
+    - name: test-cm
+      mountPath: /opt
+      readOnly: true
     resources: {}
+  volumes: 
+  - name: test-cm
+    configMap:
+      name: test-cm
+
   dnsPolicy: ClusterFirst
   restartPolicy: Always
 status: {}

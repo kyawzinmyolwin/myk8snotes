@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: myk8s
+  name: myk8s
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: svc-myk8s
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: svc-myk8s
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        resources: {}
+        env:
+          - name: DBPORT
+            valueFrom:
+              configMapKeyRef:
+                name: test-cm
+                key: db-port
+
+status: {}
+

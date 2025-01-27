@@ -1,0 +1,7 @@
+apiVersion: v1
+data:
+  db-port: "3306"
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: test-cm

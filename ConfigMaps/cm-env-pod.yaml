@@ -10,6 +10,12 @@ spec:
   - image: nginx
     name: cm-test-pod
     resources: {}
+    env:
+      - name: DBPORT
+        valueFrom:
+          configMapKeyRef:
+            name: test-cm           # The ConfigMap this value comes from.
+            key: db-port # The key to fetch.
   dnsPolicy: ClusterFirst
   restartPolicy: Always
 status: {}
